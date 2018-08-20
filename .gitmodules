@@ -1,0 +1,9 @@
+[submodule "json-tools"]
+	path = json-tools
+	url = https://github.com/pulp-platform/json-tools
+[submodule "pulp-configs"]
+	path = pulp-configs
+	url = https://github.com/pulp-platform/pulp-configs
+[submodule "pulp-debug-bridge"]
+	path = pulp-debug-bridge
+	url = https://github.com/pulp-platform/pulp-debug-bridge
