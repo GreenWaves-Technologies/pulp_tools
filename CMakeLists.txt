@@ -7,7 +7,7 @@ option(WithFTDI "Build with FTDI support" ON)
 option(WithConfigGenerators "Install the config tools" ON)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Debug"
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo"
         CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel."
         FORCE
     )
@@ -20,7 +20,7 @@ macro(add_project name)
         SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/${name}
         DOWNLOAD_COMMAND ""
         LOG_DOWNLOAD ON
-        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_IGNORE_PATH=${CMAKE_IGNORE_PATH} ${ARGN}
+        CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_IGNORE_PATH=${CMAKE_IGNORE_PATH} ${ARGN}
     )
 endmacro()
 
