@@ -7,3 +7,18 @@
 [submodule "pulp-debug-bridge"]
 	path = pulp-debug-bridge
 	url = https://github.com/pulp-platform/pulp-debug-bridge
+[submodule "gvsoc"]
+	path = gvsoc
+	url = https://github.com/sousoux/gvsoc
+[submodule "pulp-tools"]
+	path = pulp-tools
+	url = https://github.com/sousoux/pulp-tools.git
+[submodule "archi"]
+	path = archi
+	url = https://github.com/sousoux/archi.git
+[submodule "dpi-models"]
+	path = dpi-models
+	url = https://github.com/sousoux/dpi-models.git
+[submodule "runner"]
+	path = runner
+	url = https://github.com/sousoux/runner.git

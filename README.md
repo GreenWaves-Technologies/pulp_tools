@@ -5,6 +5,12 @@
 This is a tool which can be used to interact with a pulp target, like doing read and write or loading a binary.
 It also provide an RSP server so that it can be used to interface GDB with pulp targets.
 
+## Python package requirements
+
+### To build
+
+- pip/pip3 install artifactory twisted prettytable sqlalchemy openpyxl xlsxwriter
+
 Builds for:
 
 - [![Build status](https://ci.appveyor.com/api/projects/status/030a1xv6ta6vklop?svg=true)](https://ci.appveyor.com/project/sousoux/pulp-tools) Windows MinGW 64 
