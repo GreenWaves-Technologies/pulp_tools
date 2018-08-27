@@ -34,10 +34,10 @@ endif
 
 MAKEFILE_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
-all: $(BUILD_DIR)/CMakeCache.txt
+all: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make all $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
 
-install: $(BUILD_DIR)/CMakeCache.txt
+install: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make install $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
 
 clean:
@@ -46,7 +46,7 @@ clean:
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/CMakeCache.txt: $(BUILD_DIR)
+$(BUILD_DIR)/Makefile: $(BUILD_DIR)
 	( cd $(BUILD_DIR) ; \
-	  cmake -DCMAKE_BUILD_TYPE=$(RELEASE_TYPE) -DCMAKE_INSTALL_PREFIX=$(INSTALL_DIR) \
+	  cmake -DCMAKE_BUILD_TYPE=$(RELEASE_TYPE) -DCMAKE_INSTALL_PREFIX=$(INSTALL_DIR) -DTARGET_INSTALL_DIR=$(TARGET_INSTALL_DIR)\
 		$(EXTRA_CMAKE_ARGS) $(MAKEFILE_DIR) )

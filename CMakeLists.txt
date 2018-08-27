@@ -26,7 +26,15 @@ endmacro()
 
 add_project(json-tools)
 add_project(pulp-configs -DWithConfigGenerators=${WithConfigGenerators})
-add_project(pulp-debug-bridge -DWithFrameBuffer=${WithFrameBuffer} -DWithFTDI=${WithFTDI})
+
+if(DEFINED TARGET_INSTALL_DIR AND TARGET_INSTALL_DIR)
+    get_filename_component(ABS_TARGET_INSTALL_DIR ${TARGET_INSTALL_DIR} ABSOLUTE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
+    message(STATUS "TARGET_INSTALL_DIR is defined: ${ABS_TARGET_INSTALL_DIR}")
+    add_project(pulp-debug-bridge -DWithFrameBuffer=${WithFrameBuffer} -DWithFTDI=${WithFTDI} -DTARGET_INSTALL_DIR=${ABS_TARGET_INSTALL_DIR})
+else()
+    message(STATUS "TARGET_INSTALL_DIR is not defined")
+    add_project(pulp-debug-bridge -DWithFrameBuffer=${WithFrameBuffer} -DWithFTDI=${WithFTDI})
+endif()
 
 add_custom_target(pulp-tools ALL)
 
