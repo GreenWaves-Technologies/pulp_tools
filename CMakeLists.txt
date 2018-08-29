@@ -14,7 +14,6 @@ if(NOT CMAKE_BUILD_TYPE)
 endif(NOT CMAKE_BUILD_TYPE)
 
 macro(add_project name)
-
     ExternalProject_Add(
         ${name}
         SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/${name}
@@ -32,9 +31,11 @@ if(DEFINED TARGET_INSTALL_DIR AND TARGET_INSTALL_DIR)
     get_filename_component(ABS_TARGET_INSTALL_DIR ${TARGET_INSTALL_DIR} ABSOLUTE BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
     message(STATUS "TARGET_INSTALL_DIR is defined: ${ABS_TARGET_INSTALL_DIR}")
     add_project(pulp-debug-bridge -DWithFrameBuffer=${WithFrameBuffer} -DWithFTDI=${WithFTDI} -DTARGET_INSTALL_DIR=${ABS_TARGET_INSTALL_DIR})
+    add_project(gap_flasher -DTARGET_INSTALL_DIR=${ABS_TARGET_INSTALL_DIR} -DCMAKE_TOOLCHAIN_FILE=toolchain/riscv32-unknown-elf-gap8.cmake)
 else()
     message(STATUS "TARGET_INSTALL_DIR is not defined")
     add_project(pulp-debug-bridge -DWithFrameBuffer=${WithFrameBuffer} -DWithFTDI=${WithFTDI})
+    add_project(gap_flasher -DCMAKE_TOOLCHAIN_FILE=toolchain/riscv32-unknown-elf-gap8.cmake)
 endif()
 
 add_custom_target(pulp-tools ALL)
@@ -42,5 +43,6 @@ add_custom_target(pulp-tools ALL)
 add_dependencies(pulp-configs json-tools)
 add_dependencies(pulp-debug-bridge pulp-configs)
 add_dependencies(pulp-tools pulp-debug-bridge)
+add_dependencies(pulp-tools gap_flasher)
 
 install(CODE "")

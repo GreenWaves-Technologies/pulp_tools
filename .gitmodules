@@ -7,3 +7,6 @@
 [submodule "pulp-debug-bridge"]
 	path = pulp-debug-bridge
 	url = https://github.com/pulp-platform/pulp-debug-bridge
+[submodule "gap_flasher"]
+	path = gap_flasher
+	url = https://github.com/GreenWaves-Technologies/gap_flasher
