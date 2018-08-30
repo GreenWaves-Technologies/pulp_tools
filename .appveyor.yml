@@ -34,11 +34,11 @@ build_script:
 # Note: The CMAKE_INSTALL_PREFIX avoids mingw picking up the git shell (sh). This variable should be
 # propagated into all cmake scripts in submodules
   - cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug -DWithFlasher=ON -DCMAKE_INSTALL_PREFIX="%APPVEYOR_BUILD_FOLDER%/install" -DWithFTDI=$WITH_FTDI -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin"
-  - cmake --build . --target pulp-debug-bridge -- VERBOSE=1
-  - 7z a plpbridge_win64.zip %APPVEYOR_BUILD_FOLDER%/install/*
+  - cmake --build . --target pulp-tools -- VERBOSE=1
+  - 7z a pulp-tools-win64.zip %APPVEYOR_BUILD_FOLDER%/install/*
 
 artifacts:
-  - path: build/plpbridge_win64.zip
-    name: plpbridge_win64
+  - path: build/pulp-tools-win64.zip
+    name: pulp-tools-win64
 
 test: off
