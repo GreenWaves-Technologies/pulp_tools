@@ -6,4 +6,3 @@ else
 fi
 
 mkdir riscv-toolchain && tar xvf riscv-toolchain.tar.gz -C riscv-toolchain
-export PATH=`pwd`/riscv-toolchain/bin:$PATH

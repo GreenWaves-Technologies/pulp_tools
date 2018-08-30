@@ -15,7 +15,9 @@ env:
 
 before_install:
 
-install: ./travis/install.sh
+install:
+  - ./travis/install.sh
+  - export PATH=$PATH:$PWD/riscv-toolchain/bin
     
 os: 
   - linux
