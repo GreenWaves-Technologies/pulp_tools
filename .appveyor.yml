@@ -15,9 +15,12 @@ clone_depth: 5
 
 install:
   - git submodule update --init --recursive
+  - appveyor DownloadFile https://bintray.com/platformio/dl-packages/download_file?file_path=toolchain-riscv-pulp-windows_amd64-1.70101.180627.tar.gz -FileName riscv-toolchain.tar.gz
+  - mkdir C:\riscv-toolchain
+  - tar xvf riscv-toolchain.tar.gz -C C:/riscv-toolchain
 
 before_build:
-  - set Path=C:\mingw-w64\%MINGW_VER%\%MINGW_DIR%\bin;%Path%
+  - set Path=C:\mingw-w64\%MINGW_VER%\%MINGW_DIR%\bin;C:\riscv-toolchain\bin;%Path%
   - git config --global core.autocrlf input
   - g++ --version
   - mingw32-make --version
@@ -30,7 +33,7 @@ build_script:
   - cd build
 # Note: The CMAKE_INSTALL_PREFIX avoids mingw picking up the git shell (sh). This variable should be
 # propagated into all cmake scripts in submodules
-  - cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug -DStandaloneApp=YES  -DCMAKE_INSTALL_PREFIX="%APPVEYOR_BUILD_FOLDER%/install" -DWithFTDI=$WITH_FTDI -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin"
+  - cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug -DWithFlasher=YES  -DCMAKE_INSTALL_PREFIX="%APPVEYOR_BUILD_FOLDER%/install" -DWithFTDI=$WITH_FTDI -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin"
   - cmake --build . --target pulp-debug-bridge -- VERBOSE=1
   - 7z a plpbridge_win64.zip %APPVEYOR_BUILD_FOLDER%/install/*
 
