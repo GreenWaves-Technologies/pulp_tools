@@ -13,7 +13,9 @@ env:
     - WITH_FTDI=ON
     - WITH_FTDI=OFF
 
-install: if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libusb; fi
+before_install:
+
+install: ./travis/install.sh
     
 os: 
   - linux
@@ -22,5 +24,5 @@ os:
 script: 
   - mkdir build
   - cd build
-  - cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/_install -DStandaloneApp=YES -DWithFTDI=$WITH_FTDI
+  - cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/_install -DWithFTDI=$WITH_FTDI -DWithFlasher=ON
   - make all install
