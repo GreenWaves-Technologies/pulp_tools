@@ -35,10 +35,21 @@ build_script:
 # propagated into all cmake scripts in submodules
   - cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug -DWithFlasher=ON -DCMAKE_INSTALL_PREFIX="%APPVEYOR_BUILD_FOLDER%/install" -DWithFTDI=$WITH_FTDI -DCMAKE_IGNORE_PATH="C:/Program Files/Git/usr/bin"
   - cmake --build . --target pulp-tools -- VERBOSE=1
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\tcp_test_circ_buf.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\timer_test_ae.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\tcp_events_blocking_test.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\async_test_events.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\asynccall_test_events.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\rsp_test_codec.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\timer_test_events.exe
+  - pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\tcp_events_simple_test.exe
+  - 7z a pulp-tests-win64.zip pulp-debug-bridge-prefix\src\pulp-debug-bridge-build\tests\*
   - 7z a pulp-tools-win64.zip %APPVEYOR_BUILD_FOLDER%/install/*
 
 artifacts:
   - path: build/pulp-tools-win64.zip
     name: pulp-tools-win64
+  - path: build/pulp-tests-win64.zip
+    name: pulp-tests-win64
 
 test: off
