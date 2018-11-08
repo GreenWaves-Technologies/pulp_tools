@@ -15,7 +15,7 @@ clone_depth: 5
 
 install:
   - git submodule update --init --recursive
-  - appveyor DownloadFile https://bintray.com/platformio/dl-packages/download_file?file_path=toolchain-riscv-pulp-windows_amd64-1.70101.180627.tar.gz -FileName riscv-toolchain.tar.gz
+  - appveyor DownloadFile https://bintray.com/platformio/dl-packages/download_file?file_path=toolchain-riscv-pulp-windows_amd64-1.70101.181014.tar.gz -FileName riscv-toolchain.tar.gz
   - mkdir C:\riscv-toolchain
   - tar xvf riscv-toolchain.tar.gz -C C:/riscv-toolchain
 
