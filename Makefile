@@ -36,6 +36,7 @@ MAKEFILE_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
 all: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make all $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
+	make -C $(GAP_SDK_HOME)/tools/pulp_tools/pulp-rt-bridge all
 
 install: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make install $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
