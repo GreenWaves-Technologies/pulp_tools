@@ -37,7 +37,7 @@ MAKEFILE_DIR = $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 all: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make all $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
 	make -C pulp-rt-bridge all
-	cd plptest && make build
+	if [ -e plptest ]; then cd plptest && make build; fi
 
 install: $(BUILD_DIR)/Makefile
 	( cd $(BUILD_DIR) ; make install $(DBG_CMAKE) VERBOSE=$(VERBOSE) )
