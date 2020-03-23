@@ -13,6 +13,3 @@
 [submodule "pulp-rt-bridge"]
 	path = pulp-rt-bridge
 	url = git@github.com:pulp-platform/pulp-rt-bridge.git
-[submodule "plptest"]
-	path = plptest
-	url = git@github.com:pulp-platform/plptest.git
