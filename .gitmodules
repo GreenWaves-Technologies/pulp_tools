@@ -3,7 +3,7 @@
 	url = gitlab.greenwaves-tech.com:gwt_sdk_developer/json-tools.git
 [submodule "pulp-configs"]
 	path = pulp-configs
-	url = git@github.com:pulp-platform/pulp-configs
+	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp-configs.git
 [submodule "pulp-debug-bridge"]
 	path = pulp-debug-bridge
 	url = git@github.com:pulp-platform/pulp-debug-bridge
