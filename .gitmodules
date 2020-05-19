@@ -13,6 +13,3 @@
 [submodule "pulp-rt-bridge"]
 	path = pulp-rt-bridge
 	url = git@github.com:pulp-platform/pulp-rt-bridge.git
-[submodule "pulp-debug-bridge-vega"]
-	path = pulp-debug-bridge-vega
-	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp-debug-bridge-vega.git
