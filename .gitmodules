@@ -6,13 +6,13 @@
 	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp-configs.git
 [submodule "pulp-debug-bridge"]
 	path = pulp-debug-bridge
-	url = git@github.com:pulp-platform/pulp-debug-bridge
+	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp_debug_bridge.git
 [submodule "gap_flasher"]
 	path = gap_flasher
-	url = git@github.com:GreenWaves-Technologies/gap_flasher.git
+	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp_gap_flasher.git
 [submodule "pulp-rt-bridge"]
 	path = pulp-rt-bridge
-	url = git@github.com:pulp-platform/pulp-rt-bridge.git
+	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp_rt_bridge.git
 [submodule "pulp-debug-bridge-vega"]
 	path = pulp-debug-bridge-vega
 	url = git@gitlab.greenwaves-tech.com:gwt_sdk_developer/pulp-debug-bridge-vega.git
